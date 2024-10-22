@@ -1,27 +1,26 @@
 # Autores:
 #	Luigi Quero, 	   C.I: 30.009.785	      
-#	Sebastian Piñango, C.I: 29.947.488
 
 # Algoritmo que calcula la serie Fibonachi
 .data
 	array:.word 6 1 9 7 3 8 5 2 4 10    	      # Array de numeros
-	array_size: .word  10               	      # Tamanño el array de numeros
+	array_size: .word  10               	      # TamanÃ±o el array de numeros
 	space:.asciiz  " "                   	      # mensaje a imprimir en pantalla
 	mensaje_1: .asciiz  "\nVector:" 	      # mensaje a imprimir en pantalla
 .text
 	main:   
 		la $a0, array		# Se guarda la direccion de array en $a0
-		lw $a1, array_size	# Se guarda el tamaño del array en $a1
+		lw $a1, array_size	# Se guarda el tamaÃ±o del array en $a1
 	
 		jal imprimir		# Imprimir el vector
 
 		la $a1, array		# Se guarda la direccion de array en $a0
-		lw $a0, array_size	# Se guarda el tamaño del array en $a1
+		lw $a0, array_size	# Se guarda el tamaÃ±o del array en $a1
 	
 		jal ordenamiento_burbuja	# Se llama a ordenamiento_burbuja para ordenar el vector
 	
 		la $a0, array		# Se guarda la direccion de array en $a0
-		lw $a1, array_size	# Se guarda el tamaño del array en $a1
+		lw $a1, array_size	# Se guarda el tamaÃ±o del array en $a1
 	
 		jal imprimir		# Imprimir el vector
 
@@ -32,7 +31,7 @@
 # Procedimiento que imprime los elementos del vector
 	imprimir:
 		add  $t0, $zero, $a0  # Se lee en $t0 la direccion del vector
-      		add  $t1, $zero, $a1  # Se lee el tamaño del vector en $t1
+      		add  $t1, $zero, $a1  # Se lee el tamaÃ±o del vector en $t1
      		
      		la   $a0, mensaje_1   # Se lee la direccion de mensaje_2 en $a0
    		li   $v0, 4           # Se guarda el valor 4 en $v0 para indicarle a syscall la operacion a relizar
@@ -48,7 +47,7 @@
       		syscall               # Se imprime una cadena en pantalla
       
       		addi $t0, $t0, 4      # Se incremente en 1 la direccion del vector
-      		addi $t1, $t1, -1     # Se disminuye el tamaño del vector en 1
+      		addi $t1, $t1, -1     # Se disminuye el tamaÃ±o del vector en 1
       		bgtz $t1, salida         # Se verifica si se ha imprimido todos los numeros
       
       		jr   $ra              # Se regresa al programa principal
@@ -61,7 +60,7 @@
 		sw $s1, 4($sp)		 
 		sw $s2, 0($sp)		 
 		
-		sll $s2, $a0, 2		# Se guarda en $s2 el tamaño del vector * 4 para verificar si se llego al final
+		sll $s2, $a0, 2		# Se guarda en $s2 el tamaÃ±o del vector * 4 para verificar si se llego al final
 		add $s0, $zero, $zero	# Se usa $s0 como iterador i del vector
 		addi $s2, $s2, -4	# Se disminuye $s2 para evitar consultar una posicion erronea
 		
