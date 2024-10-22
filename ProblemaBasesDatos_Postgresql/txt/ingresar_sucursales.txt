@@ -1,0 +1,47 @@
+select new_sucursal(0212,
+					'Caracas',
+					'CAR',
+					'nacional'
+					);
+
+select new_sucursal(0232,
+					'Los Teques',
+					'LTQ',
+					'nacional'
+					);
+
+select new_sucursal(0233,
+					'Carayaca',
+					'CAZ',
+					'nacional'
+					);
+
+select new_sucursal(0234,
+					'Los Velásquez',
+					'AVE',
+					'nacional'
+					);
+
+select new_sucursal(034,
+					'España',
+					'ESP',
+					'internacional',
+					'2020/08/01',
+					9.80
+					);
+
+select new_sucursal(039,
+					'Italia',
+					'ITA',
+					'internacional',
+					'2020/08/01',
+					10.00
+					);
+
+select new_sucursal(001,
+					'Estados Unidos de América',
+					'EUA',
+					'internacional',
+					'2020/08/01',
+					7.60
+					);

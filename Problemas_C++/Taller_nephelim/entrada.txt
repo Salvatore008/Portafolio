@@ -1,0 +1,6 @@
+2      
+PREORDEN alvaro-N marian-M luigi-N harold-M vero-M seba-N ale-M
+INORDEN luigi-N marian-M harold-M alvaro-N seba-N vero-M ale-M
+
+POSTORDEN manu-M maxi-M giuli-M
+INORDEN manu-M giuli-N maxi-M

@@ -1,0 +1,14 @@
+--Eliminar las tablas
+drop table impuesto;
+drop table cuesta;
+drop table tiene_servicio;
+drop table pago;
+drop table servicio;
+drop table persona_natural;
+drop table persona_juridica;
+drop table llamada;
+drop table compañia_celular;
+drop table contrato;
+drop table suscriptor;
+drop table tipo_renta;
+drop table sucursal;

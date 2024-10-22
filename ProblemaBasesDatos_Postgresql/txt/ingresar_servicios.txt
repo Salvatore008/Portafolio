@@ -1,0 +1,9 @@
+select new_servicio('STA',
+					'Servicio de Teleamigo',
+					200.0
+					);
+
+select new_servicio('SNP',
+					'Servicio de Número Privado',
+					400.0
+					);

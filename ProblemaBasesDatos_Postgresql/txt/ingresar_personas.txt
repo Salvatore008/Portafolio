@@ -1,0 +1,22 @@
+select new_persona_natural(
+	        'V-4.890.639',
+			'José Eladio',
+			 'Martínez Díaz'
+			 );
+
+select new_persona_natural(
+	        'V-6.345.012',
+			'Milex',
+			 'Deris Nieto'
+			 );
+
+select new_persona_natural(
+	        'V-3.855.721',
+			'Vicenta',
+			 'Rivero de Bracho'
+			 );
+
+select new_persona_juridica(
+	        'J-02690345-7',
+			'Sistemas J.J y Asociados'
+			 );

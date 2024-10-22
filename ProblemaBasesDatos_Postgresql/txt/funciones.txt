@@ -1,0 +1,279 @@
+create or replace function new_persona_natural(
+				cedula varchar(30),
+				nombre varchar(30),
+				apellido varchar(30)
+) 
+returns void as
+$$
+declare
+	id_suscriptor int;
+begin
+	insert into suscriptor values (default);
+	
+	select id into id_suscriptor from suscriptor
+	order by id desc limit 1;
+	
+	insert into persona_natural 
+	values ( id_suscriptor,
+	         cedula,
+			 nombre,
+			 apellido
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_persona_juridica(
+				rif varchar(30),
+				razon_social varchar(30)
+) 
+returns void as
+$$
+declare
+	id_suscriptor int;
+begin
+	insert into suscriptor values (default);
+	
+	select id into id_suscriptor from suscriptor
+	order by id desc limit 1;
+	
+	insert into persona_juridica
+	values (rif,
+			razon_social,
+			id_suscriptor
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_sucursal(
+				codigo int,
+				nombre varchar(30),
+				abreviatura varchar(30),
+				tipo_destino varchar(30),
+				fecha date default null,
+				costo real default null
+) 
+returns void as
+$$
+begin
+	
+	insert into sucursal 
+	values (codigo,
+	        nombre,
+			abreviatura,
+			costo,
+			tipo_destino,
+			fecha
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_cuesta(
+				origen varchar(30),
+				codigo_origen int,
+				destino varchar(30),
+				codigo_destino int,
+				costo real,
+				fecha date
+) 
+returns void as
+$$
+begin
+	insert into cuesta
+	values (origen,
+			codigo_origen,
+			destino,
+			codigo_destino,
+			costo,
+			fecha
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_impuesto(
+				abreviatura varchar(30),
+				descripcion varchar(50),
+				porcentaje real,
+				fecha date
+) 
+returns void as
+$$
+begin
+	insert into impuesto
+	values (abreviatura,
+			descripcion,
+			porcentaje,
+			fecha
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_compañia_celular(
+				compañia varchar(30),
+				costo_minuto real,
+				fecha date
+) 
+returns void as
+$$
+begin
+	insert into compañia_celular
+	values (compañia,
+			costo_minuto,
+			fecha
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_servicio(
+				abreviatura varchar(30),
+				descripcion varchar(30),
+				costo real
+) 
+returns void as
+$$
+begin
+	insert into servicio
+	values (abreviatura,
+			descripcion,
+			costo
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_tipo_renta(
+				abreviatura varchar(30),
+				descripcion varchar(30),
+				costo real,
+				cupo_impulsos_libres real,
+				costo_impulsos_adicionales real,
+				fecha date default null
+) 
+returns void as
+$$
+begin
+	insert into tipo_renta
+	values (abreviatura,
+			descripcion,
+			costo,
+			cupo_impulsos_libres,
+			costo_impulsos_adicionales,
+			fecha
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_contrato(
+				telefono varchar(30),
+				suscriptor int,
+				titular_pago int,
+				tipo_renta varchar(30),
+				tipo_pago varchar(30),
+				tipo_telefono varchar(30),
+				direccion_suministro varchar(30),
+				direccion_notificacion varchar(30),
+				id_sucursal int default null,
+				tarjeta_credito int default null
+) 
+returns void as
+$$
+begin
+	insert into contrato
+	values (telefono,
+			suscriptor,
+			titular_pago,
+			tipo_renta,
+			tipo_pago,
+			tipo_telefono,
+			direccion_suministro,
+			direccion_notificacion,
+			id_sucursal,
+			tarjeta_credito
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_pago(
+				tipo_pago varchar(30),
+				fecha date,
+				costo real,
+				id_contrato varchar(30),
+				clave int default null, --clave de cheque o ultimos 4 digitos de la tarjeta de debito.
+				transaccion varchar(30) default null, --Numero e transaccion o numero de cheque
+				operador_telefonico varchar(30) default null,
+				banco varchar(30) default null
+) 
+returns void as
+$$
+begin
+	insert into pago
+	values (default,
+			tipo_pago,
+			fecha,
+			costo,
+			id_contrato,
+			operador_telefonico,	
+			transaccion,
+			banco,
+			clave
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_llamada(
+				id_contrato varchar(30),
+				tipo_llamada varchar(30), --Internacional o nacional(celular, local y no local)
+				operador varchar(30),
+				fecha date,
+				duracion time,
+				hora time,
+				id_destino varchar(30) default null,
+				numero_destino varchar(30) default null,
+				id_compañia_celular varchar(30) default null
+) 
+returns void as
+$$
+begin
+	insert into llamada
+	values (default,
+			id_contrato,
+			tipo_llamada,
+			numero_destino,
+			id_compañia_celular,
+			operador,
+			fecha,
+			duracion,
+			hora,
+			id_destino
+			 );
+end;
+$$
+language plpgsql;
+
+create or replace function new_tiene_servicio(
+				id_servicio varchar(30),
+				id_contrato varchar(30),
+				fecha_inicio date,
+				fecha_final date
+) 
+returns void as
+$$
+begin
+	insert into tiene_servicio
+	values (id_servicio,
+			id_contrato,
+			fecha_inicio,
+			fecha_final
+			 );
+end
+$$
+language plpgsql;
+

@@ -1,0 +1,47 @@
+select new_cuesta('AVE',
+					0234,
+					'CAR',
+					0212,
+					5.80,
+					'2020/08/01'
+					);
+
+select new_cuesta('AVE',
+					0234,
+					'LTQ',
+					0232,
+					3.00,
+					'2020/08/01'
+					);
+
+select new_cuesta('AVE',
+					0234,
+					'CAZ',
+					0233,
+					2.70,
+					'2020/08/01'
+					);
+
+select new_cuesta('CAR',
+					0212,
+					'LTQ',
+					0232,
+					4.50,
+					'2020/08/01'
+					);
+
+select new_cuesta('CAR',
+					0212,
+					'CAZ',
+					0233,
+					3.60,
+					'2020/08/01'
+					);
+
+select new_cuesta('CAZ',
+					0233,
+					'LTQ',
+					0232,
+					2.50,
+					'2020/08/01'
+					);

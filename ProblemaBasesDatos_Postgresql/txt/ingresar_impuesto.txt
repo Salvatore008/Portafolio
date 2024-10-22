@@ -1,0 +1,23 @@
+select new_impuesto('ICS',
+					'Impuesto al Consumo Suntuario',
+					0.16,
+					'2020/09/01'
+					);
+
+select new_impuesto('UCI',
+					'Impuesto al Uso de la Conexión Internacional',
+					0.25,
+					'2020/09/01'
+					);
+
+select new_impuesto('IMR',
+					'Impuesto al Mantenimiento de la Red',
+					0.01,
+					'2020/09/01'
+					);
+
+select new_impuesto('IVM',
+					'Impuesto de Ventas al Mayor',
+					0.125,
+					'2020/09/01'
+					);
