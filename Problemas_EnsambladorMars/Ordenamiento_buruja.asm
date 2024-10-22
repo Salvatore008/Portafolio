@@ -1,4 +1,4 @@
-# Autores:
+# Autor:
 #	Luigi Quero, 	   C.I: 30.009.785	      
 
 # Algoritmo que calcula la serie Fibonachi
