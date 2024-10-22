@@ -1,6 +1,5 @@
 # Autores:
 #	Luigi Quero, 	   C.I: 30.009.785	      
-#	Sebastian Piñango, C.I: 29.947.488
 
 .data
 	mensaje_1: .asciiz "Ingrese cualquier numero mayor o igual 0 para calcular su suma acumulativa: "
